@@ -15,7 +15,7 @@ http_interactions:
       Server:
       - nginx/1.0.5
       Date:
-      - Wed, 25 Apr 2012 14:20:00 GMT
+      - Wed, 25 Apr 2012 14:43:11 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -28,7 +28,7 @@ http_interactions:
       encoding: US-ASCII
       string: ''
     http_version: 
-  recorded_at: Wed, 25 Apr 2012 14:19:56 GMT
+  recorded_at: Wed, 25 Apr 2012 14:43:07 GMT
 - request:
     method: get
     uri: https://api.kag2d.com/player/prostosuper/info
@@ -44,7 +44,7 @@ http_interactions:
       Server:
       - nginx/1.0.5
       Date:
-      - Wed, 25 Apr 2012 14:20:00 GMT
+      - Wed, 25 Apr 2012 14:43:11 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -56,5 +56,5 @@ http_interactions:
       string: ! '{"active": true, "username": "prostosuper", "banned": false, "role":
         0, "gold": true}'
     http_version: 
-  recorded_at: Wed, 25 Apr 2012 14:19:57 GMT
-recorded_with: VCR 2.1.0
+  recorded_at: Wed, 25 Apr 2012 14:43:08 GMT
+recorded_with: VCR 2.1.1
