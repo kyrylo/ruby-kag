@@ -9,9 +9,10 @@ module KAG
     # KAG API endpoint.
     base_uri 'http://api.kag2d.com'
 
-    # Public: Initialize a player.
+    # Public: Initialize a new player.
     #
-    # kag_name - The name of the player in King Arthur's Gold game.
+    # kag_name - The case-insensitive name of the player in King Arthur's Gold
+    #            game.
     def initialize(kag_name)
       @kag_name = kag_name
     end
@@ -37,17 +38,23 @@ module KAG
       end
     end
 
-    # Internal: Intercepts all method calls on instances of this class, that
-    # aren't defined here. If the called method coincides with the key in @info
-    # Hash, then gets the value of that hash pair.
+    # Public: Get the status of the player.
     #
     # Examples
     #
-    #   player.foo_bar_baz
-    #   # => NoMethodError
+    #   player.active?
+    #   # => false
+    #
+    # Returns true or false.
+    def active?
+      info['active']
+    end
+
+    # Public: Get the username of the player.
+    #
+    # Examples
+    #
     #   player.username
-    #   # => 'prostosuper'
-    #   player.kag_name
     #   # => 'prostosuper'
     #
     #   # Please, note, that KAG::Player#username is not alias for
@@ -59,10 +66,44 @@ module KAG
     #   # player.kag_name
     #   # => 'flieslikeabrick'
     #
-    # Returns the value of the method call on self.
-    # Raises NoMethodError, if the given method doesn't exist.
-    def method_missing(method, *args, &block)
-      info.fetch(method.to_s) { super }
+    # Returns String with containing name of the user in game.
+    def username
+      info['username']
+    end
+
+    # Public: Get the ban status of the player.
+    #
+    # Examples
+    #
+    #   player.banned?
+    #   # => true
+    #
+    # Returns true or false.
+    def banned?
+      info['banned']
+    end
+
+    # Public: Returns role of the player.
+    #
+    # Examples
+    #
+    #   player.role
+    #   # => 4
+    #
+    # Returns Integer, representing role of the player.
+    def role
+      info['role']
+    end
+
+    # Public: Returns account status of the player. Owners of gold account
+    # boughtan the game.
+    #
+    # Examples
+    #
+    #   player.gold?
+    #   # => false
+    def gold?
+      info['gold']
     end
 
     protected

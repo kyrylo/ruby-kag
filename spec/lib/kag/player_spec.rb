@@ -51,17 +51,29 @@ describe KAG::Player do
       player.info['username'].must_equal 'prostosuper'
     end
 
-    describe 'dynamic attributes' do
+    describe 'JSON player attributes' do
       before do
         player.info
       end
 
-      it 'must return the attribute value if present in info' do
-        player.gold.must_equal true
+      it 'must return status of the player (active or not)' do
+        player.active?.must_equal true
       end
 
-      it 'must raise method missing if attribute is not present' do
-        lambda { player.foo_attribute }.must_raise NoMethodError
+      it 'must return username of the player' do
+        player.username.must_equal 'prostosuper'
+      end
+
+      it 'must return ban status of the player (banned or not)' do
+        player.banned?.must_equal false
+      end
+
+      it 'must return role of the player' do
+        player.role.must_equal 0
+      end
+
+      it 'must return account status (gold or not)' do
+        player.gold?.must_equal true
       end
     end
 
