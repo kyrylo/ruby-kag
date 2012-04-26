@@ -5,12 +5,28 @@ describe KAG::Player do
   describe 'default instance attributes' do
     let(:player) { KAG::Player.new('prostosuper') }
 
+    before do
+      VCR.insert_cassette 'avatar', :record => :none
+    end
+
+    after do
+      VCR.eject_cassette
+    end
+
     it 'must have an id attribute' do
       player.must_respond_to :nick
     end
 
     it 'must have the right id' do
       player.nick.must_equal 'prostosuper'
+    end
+
+    it 'must have avatar attribute' do
+      player.must_respond_to :avatar
+    end
+
+    it 'must have the right avatar' do
+      player.avatar.small.must_equal 'https://forum.kag2d.com/data/avatars/s/0/231.jpg'
     end
   end
 

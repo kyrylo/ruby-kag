@@ -2,13 +2,17 @@ module KAG
   # https://wiki.kag2d.com/wiki/Player_Info
   class Player
     # Public: Returns the String name of the player.
-    attr_accessor :nick
+    attr_reader :nick
+
+    # Public: Returns the KAG::Player::Avatar object.
+    attr_reader :avatar
 
     # Public: Initialize a new player.
     #
     # nick - The case-insensitive name of the player in King Arthur's Gold game.
     def initialize(nick)
-      @nick = nick
+      @nick   = nick
+      @avatar = Avatar.new(nick)
     end
 
     # Public: Retrieve information about KAG player.
