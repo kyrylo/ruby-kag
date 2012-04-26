@@ -68,14 +68,138 @@ describe KAG::Player do
         player.banned?.must_equal false
       end
 
-      it 'must return role of the player' do
-        player.role.must_equal 0
-      end
-
       it 'must return account status (gold or not)' do
         player.gold?.must_equal true
       end
-    end
+
+      describe 'roles' do
+
+        describe 'normal role' do
+          let(:normal) { KAG::Player.new('prostosuper') }
+
+          before do
+            VCR.insert_cassette 'normal', :record => :new_episodes
+          end
+
+          after do
+            VCR.eject_cassette
+          end
+
+          it 'records the fixture' do
+            KAG::Player.get("/player/prostosuper/info")
+          end
+
+          it 'must return numeric role of the player' do
+            normal.role.must_equal 0
+          end
+
+          it 'must return human-readable role of the player' do
+            normal.role(true).must_equal 'normal'
+          end
+        end
+
+        describe 'developer role' do
+          let(:developer) { KAG::Player.new('mm') }
+
+          before do
+            VCR.insert_cassette 'developer', :record => :new_episodes
+          end
+
+          after do
+            VCR.eject_cassette
+          end
+
+          it 'records the fixture' do
+            KAG::Player.get("/player/mm/info")
+          end
+
+          it 'must return numeric role of the player' do
+            developer.role.must_equal 1
+          end
+
+          it 'must return human-readable role of the player' do
+            developer.role(true).must_equal 'developer'
+          end
+        end
+
+        describe 'guard role' do
+          let(:guard) { KAG::Player.new('dnmr') }
+
+          before do
+            VCR.insert_cassette 'guard', :record => :new_episodes
+          end
+
+          after do
+            VCR.eject_cassette
+          end
+
+          it 'records the fixture' do
+            KAG::Player.get("/player/dnmr/info")
+          end
+
+          it 'must return numeric role of the player' do
+            guard.role.must_equal 2
+          end
+
+          it 'must return human-readable role of the player' do
+            guard.role(true).must_equal 'guard'
+          end
+        end
+
+        # KAG Staff role is undecided:  https://wiki.kag2d.com/wiki/Role
+        # describe 'staff role' do
+        # end
+
+        describe 'team member role' do
+          let(:team_member) { KAG::Player.new('flieslikeabrick') }
+
+          before do
+            VCR.insert_cassette 'team_member', :record => :new_episodes
+          end
+
+          after do
+            VCR.eject_cassette
+          end
+
+          it 'records the fixture' do
+            KAG::Player.get("/player/flieslikeabrick/info")
+          end
+
+          it 'must return numeric role of the player' do
+            team_member.role.must_equal 4
+          end
+
+          it 'must return human-readable role of the player' do
+            team_member.role(true).must_equal 'team member'
+          end
+        end
+
+        describe 'tester role' do
+          let(:tester) { KAG::Player.new('incarnum') }
+
+          before do
+            VCR.insert_cassette 'tester', :record => :new_episodes
+          end
+
+          after do
+            VCR.eject_cassette
+          end
+
+          it 'records the fixture' do
+            KAG::Player.get("/player/incarnum/info")
+          end
+
+          it 'must return numeric role of the player' do
+            tester.role.must_equal 5
+          end
+
+          it 'must return human-readable role of the player' do
+            tester.role(true).must_equal 'tester'
+          end
+
+        end
+      end # roles
+    end # JSON player attributes
 
     describe 'caching' do
       before do

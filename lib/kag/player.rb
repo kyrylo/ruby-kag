@@ -85,14 +85,36 @@ module KAG
 
     # Public: Returns role of the player.
     #
+    # readable - The Boolean flag, which describes how the return value should
+    #            be represented (either machine-readable format or
+    #            human-readable) (default: false).
+    #
     # Examples
     #
+    #   # Machine-readable role.
     #   player.role
     #   # => 4
     #
-    # Returns Integer, representing role of the player.
-    def role
-      info['role']
+    #   # Human-readable role.
+    #   player.role(true)
+    #   # => 'team member'
+    #
+    # Returns Integer, representing role of the player or String, if readable
+    # flag was used.
+    def role(readable = false)
+      role = info['role']
+
+      if readable
+        case role
+        when 0 then 'normal'
+        when 1 then 'developer'
+        when 2 then 'guard'
+        when 4 then 'team member'
+        when 5 then 'tester'
+        end
+      else
+        role
+      end
     end
 
     # Public: Returns account status of the player. Owners of gold account
