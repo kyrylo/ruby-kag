@@ -4,17 +4,16 @@ module KAG
     include HTTParty
 
     # Public: Returns the String name of the player.
-    attr_accessor :kag_name
+    attr_accessor :nick
 
     # KAG API endpoint.
     base_uri 'http://api.kag2d.com'
 
     # Public: Initialize a new player.
     #
-    # kag_name - The case-insensitive name of the player in King Arthur's Gold
-    #            game.
-    def initialize(kag_name)
-      @kag_name = kag_name
+    # nick - The case-insensitive name of the player in King Arthur's Gold game.
+    def initialize(nick)
+      @nick = nick
     end
 
     # Public: Retrieve information about KAG player.
@@ -58,12 +57,13 @@ module KAG
     #   # => 'prostosuper'
     #
     #   # Please, note, that KAG::Player#username is not alias for
-    #   # KAG::Player#kag_name. #username is the name, which is given by KAG API
-    #   # and #kag_name is an attribute of your object. Feel the difference:
+    #   # KAG::Player#nick. KAG::Player#username is the name, which is given by
+    #   # KAG API and Player#nick is an attribute of your object. Feel the
+    #   # difference:
     #   # player = KAG::Player.new('flieslikeabrick')
     #   # player.username
     #   # => 'FliesLikeABrick'
-    #   # player.kag_name
+    #   # player.nick
     #   # => 'flieslikeabrick'
     #
     # Returns String with containing name of the user in game.
@@ -113,9 +113,9 @@ module KAG
     #
     # Returns Hash with the information about player or Hash with statusMessage,
     # telling, that player doesn't exist, if there is no KAG player with given
-    # username.
+    # nick.
     def get_info
-      self.class.get "/player/#@kag_name/info"
+      self.class.get "/player/#@nick/info"
     end
 
   end

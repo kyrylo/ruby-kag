@@ -16,11 +16,11 @@ describe KAG::Player do
     let(:player) { KAG::Player.new('prostosuper') }
 
     it 'must have an id attribute' do
-      player.must_respond_to :kag_name
+      player.must_respond_to :nick
     end
 
     it 'must have the right id' do
-      player.kag_name.must_equal 'prostosuper'
+      player.nick.must_equal 'prostosuper'
     end
   end
 

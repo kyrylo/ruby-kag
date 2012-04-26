@@ -15,7 +15,7 @@ http_interactions:
       Server:
       - nginx/1.0.5
       Date:
-      - Wed, 25 Apr 2012 14:43:11 GMT
+      - Thu, 26 Apr 2012 08:59:21 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -28,7 +28,7 @@ http_interactions:
       encoding: US-ASCII
       string: ''
     http_version: 
-  recorded_at: Wed, 25 Apr 2012 14:43:07 GMT
+  recorded_at: Thu, 26 Apr 2012 08:59:17 GMT
 - request:
     method: get
     uri: https://api.kag2d.com/player/prostosuper/info
@@ -44,7 +44,7 @@ http_interactions:
       Server:
       - nginx/1.0.5
       Date:
-      - Wed, 25 Apr 2012 14:43:11 GMT
+      - Thu, 26 Apr 2012 08:59:22 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -56,5 +56,61 @@ http_interactions:
       string: ! '{"active": true, "username": "prostosuper", "banned": false, "role":
         0, "gold": true}'
     http_version: 
-  recorded_at: Wed, 25 Apr 2012 14:43:08 GMT
+  recorded_at: Thu, 26 Apr 2012 08:59:17 GMT
+- request:
+    method: get
+    uri: http://api.kag2d.com/player//info
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 301
+      message: Moved Permanently
+    headers:
+      Server:
+      - nginx/1.0.5
+      Date:
+      - Thu, 26 Apr 2012 08:59:22 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Location:
+      - https://api.kag2d.com/player//info
+    body:
+      encoding: US-ASCII
+      string: ''
+    http_version: 
+  recorded_at: Thu, 26 Apr 2012 08:59:18 GMT
+- request:
+    method: get
+    uri: https://api.kag2d.com/player//info
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 404
+      message: notFound
+    headers:
+      Server:
+      - nginx/1.0.5
+      Date:
+      - Thu, 26 Apr 2012 08:59:23 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: US-ASCII
+      string: ! '{"statusMessage": "Player not found"}'
+    http_version: 
+  recorded_at: Thu, 26 Apr 2012 08:59:18 GMT
 recorded_with: VCR 2.1.1
