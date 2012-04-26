@@ -86,7 +86,7 @@ describe KAG::Player do
           end
 
           it 'records the fixture' do
-            KAG::Player.get("/player/prostosuper/info")
+            KAG::Player.get('/player/prostosuper/info')
           end
 
           it 'must return numeric role of the player' do
@@ -110,7 +110,7 @@ describe KAG::Player do
           end
 
           it 'records the fixture' do
-            KAG::Player.get("/player/mm/info")
+            KAG::Player.get('/player/mm/info')
           end
 
           it 'must return numeric role of the player' do
@@ -134,7 +134,7 @@ describe KAG::Player do
           end
 
           it 'records the fixture' do
-            KAG::Player.get("/player/dnmr/info")
+            KAG::Player.get('/player/dnmr/info')
           end
 
           it 'must return numeric role of the player' do
@@ -162,7 +162,7 @@ describe KAG::Player do
           end
 
           it 'records the fixture' do
-            KAG::Player.get("/player/flieslikeabrick/info")
+            KAG::Player.get('/player/flieslikeabrick/info')
           end
 
           it 'must return numeric role of the player' do
@@ -186,7 +186,7 @@ describe KAG::Player do
           end
 
           it 'records the fixture' do
-            KAG::Player.get("/player/incarnum/info")
+            KAG::Player.get('/player/incarnum/info')
           end
 
           it 'must return numeric role of the player' do
