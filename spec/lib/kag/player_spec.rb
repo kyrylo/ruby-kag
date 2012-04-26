@@ -2,16 +2,6 @@ require_relative '../../spec_helper'
 
 describe KAG::Player do
 
-  describe 'default attributes' do
-    it 'must include HTTPparty methods' do
-      KAG::Player.must_include HTTParty
-    end
-
-    it 'must have the base URL set to the KAG API endpoint' do
-      KAG::Player.base_uri.must_equal 'http://api.kag2d.com'
-    end
-  end
-
   describe 'default instance attributes' do
     let(:player) { KAG::Player.new('prostosuper') }
 
@@ -36,10 +26,10 @@ describe KAG::Player do
     end
 
     it 'records the fixture' do
-      KAG::Player.get('/player/prostosuper/info')
+      KAG.get('/player/prostosuper/info')
     end
 
-    it 'must have an info method' do
+    it 'must have the info method' do
       player.must_respond_to :info
     end
 
@@ -86,7 +76,7 @@ describe KAG::Player do
           end
 
           it 'records the fixture' do
-            KAG::Player.get('/player/prostosuper/info')
+            KAG.get('/player/prostosuper/info')
           end
 
           it 'must return numeric role of the player' do
@@ -110,7 +100,7 @@ describe KAG::Player do
           end
 
           it 'records the fixture' do
-            KAG::Player.get('/player/mm/info')
+            KAG.get('/player/mm/info')
           end
 
           it 'must return numeric role of the player' do
@@ -134,7 +124,7 @@ describe KAG::Player do
           end
 
           it 'records the fixture' do
-            KAG::Player.get('/player/dnmr/info')
+            KAG.get('/player/dnmr/info')
           end
 
           it 'must return numeric role of the player' do
@@ -162,7 +152,7 @@ describe KAG::Player do
           end
 
           it 'records the fixture' do
-            KAG::Player.get('/player/flieslikeabrick/info')
+            KAG.get('/player/flieslikeabrick/info')
           end
 
           it 'must return numeric role of the player' do
@@ -186,7 +176,7 @@ describe KAG::Player do
           end
 
           it 'records the fixture' do
-            KAG::Player.get('/player/incarnum/info')
+            KAG.get('/player/incarnum/info')
           end
 
           it 'must return numeric role of the player' do

@@ -1,13 +1,8 @@
 module KAG
   # https://wiki.kag2d.com/wiki/Player_Info
   class Player
-    include HTTParty
-
     # Public: Returns the String name of the player.
     attr_accessor :nick
-
-    # KAG API endpoint.
-    base_uri 'http://api.kag2d.com'
 
     # Public: Initialize a new player.
     #
@@ -137,7 +132,7 @@ module KAG
     # telling, that player doesn't exist, if there is no KAG player with given
     # nick.
     def get_info
-      self.class.get "/player/#@nick/info"
+      KAG.get "/player/#@nick/info"
     end
 
   end
