@@ -27,7 +27,8 @@ module KAG
     #   player.info
     #   player.info(true) # Disable cached info
     #
-    # Returns Hash.
+    # Returns Hash with info about player or Hash with statusMessage, if the
+    # player doesn't exist..
     def info(force = false)
       if force
         @info = get_info
