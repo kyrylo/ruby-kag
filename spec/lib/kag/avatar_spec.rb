@@ -3,7 +3,7 @@ require_relative '../../spec_helper'
 describe KAG::Player::Avatar do
 
   describe 'GET avatar info' do
-    let (:avatar) { KAG::Player::Avatar.new('prostosuper') }
+    let(:avatar) { KAG::Player::Avatar.new('prostosuper') }
 
     before do
       VCR.insert_cassette 'avatar', :record => :new_episodes
