@@ -82,7 +82,7 @@ module KAG
       info['banned']
     end
 
-    # Public: Returns role of the player.
+    # Public: Get the role of the player.
     #
     # readable - The Boolean flag, which describes how the return value should
     #            be represented (either machine-readable format or
@@ -116,15 +116,46 @@ module KAG
       end
     end
 
-    # Public: Returns account status of the player. Owners of gold account
-    # boughtan the game.
+    # Public: Check for account type of the player. Owners of gold account
+    # bought the game.
     #
     # Examples
     #
     #   player.gold?
     #   # => false
+    #
+    # Returns true if the player has gold account or false otherwise.
     def gold?
       info['gold']
+    end
+
+    # Public: Get the ban expiration date if user was banned. This field is
+    # appears only for banned users.
+    #
+    # Examples
+    #
+    #   player.ban_expiration
+    #   # => #<DateTime: 2022-03-02T09:09:53+00:00 ((2459641j,32993s,0n),+0s,2299161j)>
+    #
+    # Returns DateTime object, which has ban expiration date of the player or
+    # nil, if the player has no active bans.
+    def ban_expiration
+      ban_expiration_date = info['banExpiration']
+      DateTime.parse ban_expiration_date if ban_expiration_date
+    end
+
+    # Public: Get the ban reason if user was banned. This field is appears only
+    # for banned users.
+    #
+    # Examples
+    #
+    #   player.ban_reason
+    #   # => 'Speedhacking'
+    #
+    # Returns String object, which represents description of the ban if any bans
+    # are active.
+    def ban_reason
+      info['banReason']
     end
 
     protected

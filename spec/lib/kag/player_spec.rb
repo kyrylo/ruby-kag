@@ -78,6 +78,38 @@ describe KAG::Player do
         player.gold?.must_equal true
       end
 
+      describe 'banned players' do
+        let (:banned_player) { KAG::Player.new('tiffou') }
+
+        before do
+          VCR.insert_cassette 'banned_player', :record => :new_episodes
+        end
+
+        after do
+          VCR.eject_cassette
+        end
+
+        it 'records the fixture' do
+          KAG.get('/player/tiffou/info')
+        end
+
+        it 'must return DateTime for ban expiration date' do
+          banned_player.ban_expiration.must_be_instance_of DateTime
+        end
+
+        it 'must return ban expiration date' do
+          banned_player.ban_expiration.must_equal DateTime.parse('2022/03/02 09:09:53')
+        end
+
+        it 'must return String for ban reason' do
+          banned_player.ban_reason.must_be_instance_of String
+        end
+
+        it 'must return ban reason' do
+          banned_player.ban_reason.must_equal 'cheating - speedhack.'
+        end
+      end
+
       describe 'roles' do
 
         describe 'normal role' do

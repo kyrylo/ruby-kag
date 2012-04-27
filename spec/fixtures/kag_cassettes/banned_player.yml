@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://api.kag2d.com/player/prostosuper/info
+    uri: http://api.kag2d.com/player/tiffou/info
     body:
       encoding: US-ASCII
       string: ''
@@ -15,7 +15,7 @@ http_interactions:
       Server:
       - nginx/1.0.5
       Date:
-      - Fri, 27 Apr 2012 09:24:12 GMT
+      - Fri, 27 Apr 2012 09:24:13 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -23,15 +23,15 @@ http_interactions:
       Connection:
       - keep-alive
       Location:
-      - https://api.kag2d.com/player/prostosuper/info
+      - https://api.kag2d.com/player/tiffou/info
     body:
       encoding: US-ASCII
       string: ''
     http_version: 
-  recorded_at: Fri, 27 Apr 2012 09:24:06 GMT
+  recorded_at: Fri, 27 Apr 2012 09:24:07 GMT
 - request:
     method: get
-    uri: https://api.kag2d.com/player/prostosuper/info
+    uri: https://api.kag2d.com/player/tiffou/info
     body:
       encoding: US-ASCII
       string: ''
@@ -44,7 +44,7 @@ http_interactions:
       Server:
       - nginx/1.0.5
       Date:
-      - Fri, 27 Apr 2012 09:24:12 GMT
+      - Fri, 27 Apr 2012 09:24:14 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -53,8 +53,9 @@ http_interactions:
       - keep-alive
     body:
       encoding: US-ASCII
-      string: ! '{"active": true, "username": "prostosuper", "banned": false, "role":
-        0, "gold": true}'
+      string: ! '{"username": "tiffou", "banExpiration": "2022-03-02 09:09:53", "gold":
+        true, "banned": true, "role": 0, "banReason": "cheating - speedhack.", "active":
+        true}'
     http_version: 
-  recorded_at: Fri, 27 Apr 2012 09:24:06 GMT
+  recorded_at: Fri, 27 Apr 2012 09:24:07 GMT
 recorded_with: VCR 2.1.1
