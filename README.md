@@ -1,5 +1,5 @@
-KAG
-===
+KAG [![Build Status][travp]][trav]
+==================================
 
 * [https://github.com/kyrylo/ruby-kag/][rkag]
 
@@ -45,3 +45,5 @@ The project uses Zlib License. See LICENSE file for more information.
 [rkag]: https://github.com/kyrylo/ruby-kag/ "Home page"
 [kag]: http://kag2d.com/
 [kagf]: https://forum.kag2d.com/
+[travproject]: https://secure.travis-ci.org/kyrylo/ruby-kag.png?branch=master
+[travimg]: http://travis-ci.org/kyrylo/ruby-kag
