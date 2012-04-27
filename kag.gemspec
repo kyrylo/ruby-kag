@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rake'
   s.add_development_dependency 'webmock',  '>=1.8.6'
   s.add_development_dependency 'vcr',      '>=2.1.1'
+  s.add_development_dependency 'minitest', '>=2.12.1'
 
   s.required_ruby_version = '~>1.9'
 
