@@ -1,4 +1,4 @@
-KAG [![Build Status][travp]][trav]
+KAG [![Build Status][travproject]][travimg]
 ==================================
 
 * [https://github.com/kyrylo/ruby-kag/][rkag]
